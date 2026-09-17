@@ -1,0 +1,175 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * indihost design system — GitHub-like light theme.
+ * Every colour used in the app is a semantic token defined here.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 3px);
+  --radius-md: calc(var(--radius) - 1px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --font-sans: var(--font-ui);
+  --font-mono: var(--font-code);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-canvas-subtle: var(--canvas-subtle);
+  --color-canvas-inset: var(--canvas-inset);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-link: var(--link);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-success-subtle: var(--success-subtle);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-header: var(--header);
+  --color-header-foreground: var(--header-foreground);
+  --color-console: var(--console);
+  --color-console-foreground: var(--console-foreground);
+  --color-sidebar: var(--canvas-subtle);
+  --color-sidebar-foreground: var(--foreground);
+  --color-sidebar-border: var(--border);
+  --color-sidebar-accent: var(--accent);
+  --color-sidebar-accent-foreground: var(--accent-foreground);
+  --color-sidebar-primary: var(--primary);
+  --color-sidebar-primary-foreground: var(--primary-foreground);
+  --color-sidebar-ring: var(--ring);
+  --color-grid-0: var(--grid-0);
+  --color-grid-1: var(--grid-1);
+  --color-grid-2: var(--grid-2);
+  --color-grid-3: var(--grid-3);
+  --color-grid-4: var(--grid-4);
+}
+
+
+:root {
+  --radius: 0.375rem;
+
+  --font-ui:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  --font-code:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* canvas */
+  --background: oklch(1 0 0); /* #ffffff */
+  --foreground: oklch(0.24 0.014 258); /* #1f2328 */
+  --canvas-subtle: oklch(0.977 0.002 258); /* #f6f8fa */
+  --canvas-inset: oklch(0.968 0.003 258); /* #f0f3f6 */
+
+  --card: oklch(1 0 0);
+  --card-foreground: var(--foreground);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--foreground);
+
+  /* GitHub blue */
+  --link: oklch(0.52 0.166 258); /* #0969da */
+  --primary: oklch(0.52 0.166 258);
+  --primary-foreground: oklch(1 0 0);
+
+  --secondary: var(--canvas-subtle);
+  --secondary-foreground: var(--foreground);
+  --muted: var(--canvas-subtle);
+  --muted-foreground: oklch(0.53 0.014 258); /* #656d76 */
+  --accent: var(--canvas-inset);
+  --accent-foreground: var(--foreground);
+
+  /* GitHub green */
+  --success: oklch(0.51 0.132 152); /* #1a7f37 */
+  --success-foreground: oklch(1 0 0);
+  --success-subtle: oklch(0.95 0.04 152); /* #dafbe1 */
+
+  /* GitHub contribution grid */
+  --grid-0: oklch(0.945 0.004 258); /* #ebedf0 */
+  --grid-1: oklch(0.87 0.09 152); /* #9be9a8 */
+  --grid-2: oklch(0.75 0.15 152); /* #40c463 */
+  --grid-3: oklch(0.63 0.16 152); /* #30a14e */
+  --grid-4: oklch(0.48 0.13 152); /* #216e39 */
+
+  /* GitHub red */
+  --destructive: oklch(0.53 0.203 26); /* #cf222e */
+  --destructive-foreground: oklch(1 0 0);
+
+
+
+  --border: oklch(0.888 0.006 258); /* #d0d7de */
+  --border-strong: oklch(0.78 0.008 258);
+  --input: oklch(0.888 0.006 258);
+  --ring: oklch(0.52 0.166 258);
+
+  --header: oklch(1 0 0);
+  --header-foreground: var(--foreground);
+
+  --console: oklch(0.19 0.014 258); /* near-black terminal */
+  --console-foreground: oklch(0.93 0.02 152);
+}
+
+.dark {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.24 0.014 258);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    font-family: var(--font-ui);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+/* ---------------------------------------------------------------- utils */
+
+@utility gh-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-card);
+}
+
+@utility gh-row-hover {
+  &:hover {
+    background-color: var(--color-canvas-subtle);
+  }
+}
+
+@utility gh-link {
+  color: var(--color-link);
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@utility num {
+  font-family: var(--font-code);
+  font-variant-numeric: tabular-nums;
+}
